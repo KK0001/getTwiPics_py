@@ -5,7 +5,7 @@
 # タイムライン上の画像を保存する。
 # bashにTLを流して、画像を見つけたら保存。
 # 保存先としては、投稿者ユーザーのID(@~)のフォルダを『カレントディレクトリ/streamPics/userID』。
-# 
+#
 # 参考:
 # http://kivantium.hateblo.jp/entry/2015/01/03/000225
 # https://gist.github.com/kurozumi/d1228fc0761eb3dc128ad1b2abd8f818#file-twi-streaming-py
@@ -16,6 +16,7 @@ import sys
 import tweepy
 import urllib
 import os
+import time
 
 def get_oauth():
     CONSUMER_KEY=''
