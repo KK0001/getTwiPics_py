@@ -5,6 +5,11 @@
 # タイムライン上の画像を保存する。
 # bashにTLを流して、画像を見つけたら保存。
 # 保存先としては、投稿者ユーザーのID(@~)のフォルダを『カレントディレクトリ/streamPics/userID』。
+# 
+# 参考:
+# http://kivantium.hateblo.jp/entry/2015/01/03/000225
+# https://gist.github.com/kurozumi/d1228fc0761eb3dc128ad1b2abd8f818#file-twi-streaming-py
+# http://thetree.hatenadiary.jp/entry/2017/02/19/python_標準出力のフラッシュ_sys.stdout.flush
 ###
 
 import sys
@@ -58,4 +63,15 @@ if __name__ == '__main__':
     auth=get_oauth()
     stream = tweepy.Stream(auth, Listener())
 
-    stream.userstream()
+    while True:
+      try:
+        stream.userstream()
+      except:
+        # 10秒間sleepして再接続
+        print("RECONNECTING...")
+        for i in range(10):
+            sys.stdout.write(".")
+            sys.stdout.flush()
+            time.sleep(1)
+        stream = tweepy.Stream(auth, Listner())
+        print("RECONNECTED.")
