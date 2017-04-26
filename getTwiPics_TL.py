@@ -36,11 +36,10 @@ class Listener(tweepy.StreamListener):
                                                                name=status.author.name, screen=status.author.screen_name,
                                                                created=status.created_at, src=status.source))
 
-        if os.path.exists("./streamPics/" + status.author.screen_name) == False:
-            os.makedirs("./streamPics/" + status.author.screen_name)
-
         if hasattr(status, "extended_entities"):
             if "media" in status.extended_entities:
+                if os.path.exists("./streamPics/" + status.author.screen_name) == False:
+                    os.makedirs("./streamPics/" + status.author.screen_name)
                 for index,media in enumerate(status.extended_entities["media"]):
                     img_url = media["media_url_https"]
                     print(status.author.screen_name + " image " +  str(img_url) + " save to ./streamPics/" + status.author.screen_name)
