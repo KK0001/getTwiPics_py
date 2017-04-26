@@ -36,18 +36,19 @@ class Listener(tweepy.StreamListener):
                                                                name=status.author.name, screen=status.author.screen_name,
                                                                created=status.created_at, src=status.source))
 
-        if hasattr(status, "extended_entities"):
-            if "media" in status.extended_entities:
-                if os.path.exists("./streamPics/" + status.author.screen_name) == False:
-                    os.makedirs("./streamPics/" + status.author.screen_name)
-                for index,media in enumerate(status.extended_entities["media"]):
-                    img_url = media["media_url_https"]
-                    print(status.author.screen_name + " image " +  str(img_url) + " save to ./streamPics/" + status.author.screen_name)
-                    img = urllib.request.urlopen(img_url)
-                    tmp_path = open("./streamPics/" + status.author.screen_name + "/" + os.path.basename(img_url), "wb")
-                    tmp_path.write(img.read())
-                    img.close()
-                    tmp_path.close()
+        if os.path.exists("./picsOnStream/" + status.author.screen_name) == False:
+            os.makedirs("./picsOnStream/" + status.author.screen_name)
+
+        # if hasattr(status, "extended_entities"):
+        if "media" in status.extended_entities:
+            for index,media in enumerate(status.extended_entities["media"]):
+                img_url = media["media_url_https"]
+                print(status.author.screen_name + " image " +  str(img_url) + " save to ./picsOnStream/" + status.author.screen_name)
+                img = urllib.request.urlopen(img_url)
+                tmp_path = open("./picsOnStream/" + status.author.screen_name + "/" + os.path.basename(img_url), "wb")
+                tmp_path.write(img.read())
+                img.close()
+                tmp_path.close()
 
         return True
 
@@ -64,14 +65,8 @@ if __name__ == '__main__':
     stream = tweepy.Stream(auth, Listener())
 
     while True:
-      try:
-        stream.userstream()
-      except:
-        # 10秒間sleepして再接続
-        print("RECONNECTING...")
-        for i in range(10):
-            sys.stdout.write(".")
-            sys.stdout.flush()
-            time.sleep(1)
-        stream = tweepy.Stream(auth, Listener())
-        print("RECONNECTED.")
+        try:
+            stream.userstream()
+        except:#Twitterに弾かれた時の対策
+            time.sleep(10)
+            stream = tweepy.Stream(auth, Listener())
