@@ -73,5 +73,5 @@ if __name__ == '__main__':
             sys.stdout.write(".")
             sys.stdout.flush()
             time.sleep(1)
-        stream = tweepy.Stream(auth, Listner())
+        stream = tweepy.Stream(auth, Listener())
         print("RECONNECTED.")
