@@ -9,13 +9,13 @@ from mastodon import Mastodon
 
 Mastodon.create_app("ここにクライアント名(好きな名前を入れられます)",
                     api_base_url = "https://pawoo.net", # サーバーアドレス
-                    to_file = "hoge.txt" # 出力先ファイル名
+                    to_file = "hoge_clientcred.txt" # 出力先ファイル名
                     )
 
-mastodon = Mastodon(client_id="hoge.txt",
+mastodon = Mastodon(client_id="hoge_clientcred.txt",
                     api_base_url = "https://pawoo.net"
                     )
 
 mastodon.log_in("ここにメールアドレス","ここにパスワード",
-                to_file = "hoge.txt"
+                to_file = "hoge_clientcred.txt"
                 )

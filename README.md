@@ -13,5 +13,5 @@ Python3.X。
 自分のタイムラインを取得し、画像が投稿されたら保存。  
 
 ### getPawooPics
-mastodonでも同じことがしたい。mastodon.pyという簡単にAPIが叩けるスクリプトがあるらしいので作ってみた。  
-pipでmastodon.pyをインストールすれば使用可能。setup.pyを自分用に編集(クライアント名、hoge.txtの名称変更、アカウント情報追加。)し、対応するgetPawooPics.pyの行を反映するように書き換え(login()のhogeをsetup.pyと同じ名前に変更。)れば準備完了。  
+mastodon(ここではPawoo.net)でも同じことがしたい。mastodon.pyという簡単にAPIが叩けるスクリプトがあるらしいので作ってみた。  
+pipでmastodon.pyをインストールすれば使用可能。setup.pyを自分用に編集(クライアント名、hoge_clientcred.txtの名称変更、アカウント情報追加。)し、対応するgetPawooPics.pyの行を反映するように書き換え(login()部分。)れば準備完了。  

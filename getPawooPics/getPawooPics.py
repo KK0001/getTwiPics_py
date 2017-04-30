@@ -8,7 +8,7 @@ import os
 import time
 
 ###
-# mastodonのローカルタイムラインを流れるsensitiveな画像を保存していく。
+# mastodonのローカルタイムラインを流れるsensitiveな画像を保存していく。(今回はPawoo.net)
 # 保存先は、『カレントディレクトリ/picsOnPawoo/ここ』にまとめて保存。
 # ユーザー別にフォルダ分けはしません。
 #
@@ -17,9 +17,9 @@ import time
 
 def login():
     mastodon = Mastodon(
-        client_id="hoge.txt",
-        access_token="hoge.txt",
-        api_base_url = "https://pawoo.net" #Pawoo.net の場合
+        client_id="hoge_clientcred.txt",
+        access_token="hoge_clientcred.txt",
+        api_base_url = "https://pawoo.net"
     )
     return mastodon
 
