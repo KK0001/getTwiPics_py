@@ -40,14 +40,14 @@ class Listener(tweepy.StreamListener):
         if "media" in status.extended_entities:
 
             #ユーザーフォルダが無かったら作成
-            if os.path.exists("./picsOnStream/" + status.author.screen_name) == False:
-                os.makedirs("./picsOnStream/" + status.author.screen_name)
+#             if os.path.exists("./picsOnStream/" + status.author.screen_name) == False:
+#                 os.makedirs("./picsOnStream/" + status.author.screen_name)
 
             for index,media in enumerate(status.extended_entities["media"]):
                 img_url = media["media_url_https"]
-                print(status.author.screen_name + " image " +  str(img_url) + " save to ./picsOnStream/" + status.author.screen_name)
+                print(status.author.screen_name + " image " +  str(img_url) + " save to ./picsOnStream/")
                 img = urllib.request.urlopen(img_url)
-                tmp_path = open("./picsOnStream/" + status.author.screen_name + "/" + os.path.basename(img_url), "wb")
+                tmp_path = open("./picsOnStream/" + os.path.basename(img_url), "wb")
                 tmp_path.write(img.read())
                 img.close()
                 tmp_path.close()
