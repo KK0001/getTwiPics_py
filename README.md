@@ -7,9 +7,18 @@ Tweepyを使用。
 Python3.X。  
 
 ## 使い方
-1. Python(3.~)の環境を準備。([ここ](http://www.pythonweb.jp/install/)などを参照するか、あるいはパッケージ管理ツールなどでインストールする。)
+1. Python(3.~)の環境を準備。([ここ](http://www.pythonweb.jp/install/)などを参照するか、あるいはパッケージ管理ツール(pyenvなど)でインストールする。)  
+注意: 忘れずにPATHを通しておくこと。
 
-2. Windowsの場合、起動したいファイルをダブルクリック。
+2. パッケージのインストールの準備。([ここ](http://prpr.hatenablog.jp/entry/2015/04/02/windows%E7%92%B0%E5%A2%83%E3%81%AEPython3.4%E3%81%A7pip%E3%82%92%E3%81%A4%E3%81%8B%E3%81%A3%E3%81%A6%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8B)などを参照すると良いかも。)
+
+3. Tweepyをインストール。  
+コンソールにて`$ sudo pip3 install tweepy`。  
+だめだったら、`$ sudo pip install tweepy`とやってみると良いかも。
+
+4. 起動したいPythonファイル内に、自分のConsumer KeyやConsumer Key Secretを記述するところがあるので、入力する。
+
+5. Windowsの場合、起動したいファイルをダブルクリック。
 (Macの場合、コンソールにて`$ Python3 ~.py`で起動。カレントディレクトリに注意。)
 
 ## ファイル一覧
