@@ -23,8 +23,8 @@ public class Main{
         OAuthAuthorization oauth = new OAuthAuthorization(conf);
 
         // OAuth関係(入力必須)
-       oauth.setOAuthConsumer(consumerKey, consumerSecret);
-       oauth.setOAuthAccessToken(new AccessToken(token, tokenSecret));
+        oauth.setOAuthConsumer(consumerKey, consumerSecret);
+        oauth.setOAuthAccessToken(new AccessToken(token, tokenSecret));
 
         // Streamのインスタンス
         TwitterStream stream = new TwitterStreamFactory().getInstance(oauth);
@@ -54,7 +54,7 @@ public class Main{
                 if(status.getExtendedMediaEntities().length >= 1){
                     for(int i=0 ; i <= status.getExtendedMediaEntities().length ; i++){
                         String imageURL = status.getExtendedMediaEntities()[i].getMediaURL();
-                        download(imageURL); // ダウンロード
+                        download2(imageURL); // ダウンロード
                     }
                 }
 
@@ -84,7 +84,7 @@ public class Main{
 
 
     //ダウンローダー
-    private static void download(String imageURL){
+    private static void download2(String imageURL){
         try {
 
             URL url = new URL(imageURL); // URL

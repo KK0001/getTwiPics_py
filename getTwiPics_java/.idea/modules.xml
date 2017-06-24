@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Twitter4Jstream.iml" filepath="$PROJECT_DIR$/Twitter4Jstream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/getTwiPics_java.iml" filepath="$PROJECT_DIR$/getTwiPics_java.iml" />
     </modules>
   </component>
 </project>
