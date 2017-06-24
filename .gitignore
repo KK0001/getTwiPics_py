@@ -1,2 +1,8 @@
 picsOnStream/
 picsOnStream/
+
+# java
+out
+images
+*.iml
+META-INF
